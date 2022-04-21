@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travel around the world</title>
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font.css">  
+  <link rel="stylesheet" href="libs/slick/css/slick.css">
+  <link rel="stylesheet" href="libs/slick/css/slick-theme.css">
+  <link rel="stylesheet" href="libs/hamburger/css/hamburgers.min.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="libs/slick/js/slick.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body>
+
+  <!-- Sprite -->
+  <svg style="display: none;">
+
+      <!-- prev -->
+      <symbol id="prev" viewBox="0 0 492 492">
+          <g>
+              <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12
+                  C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084
+                  c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864
+                  l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"/>
+          </g>
+      </symbol>
+
+      <!-- next -->
+      <symbol id="next" viewBox="0 0 492.004 492.004">
+         <g>
+          <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12
+              c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028
+              c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265
+              c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"/>
+         </g>
+      </symbol>
+
+      <!-- play -->
+      <symbol id="play" viewBox="0 0 512 512">
+         <g>
+          <path d="M256,0C114.833,0,0,114.844,0,256s114.833,256,256,256s256-114.844,256-256S397.167,0,256,0z M256,490.667
+          C126.604,490.667,21.333,385.396,21.333,256S126.604,21.333,256,21.333S490.667,126.604,490.667,256S385.396,490.667,256,490.667
+          z"/>
+          <path d="M357.771,247.031l-149.333-96c-3.271-2.135-7.5-2.25-10.875-0.396C194.125,152.51,192,156.094,192,160v192
+          c0,3.906,2.125,7.49,5.563,9.365c1.583,0.865,3.354,1.302,5.104,1.302c2,0,4.021-0.563,5.771-1.698l149.333-96
+          c3.042-1.958,4.896-5.344,4.896-8.969S360.813,248.99,357.771,247.031z M213.333,332.458V179.542L332.271,256L213.333,332.458z"
+          />
+         </g>
+      </symbol>
+
+      <!-- youtube -->
+      <symbol id="youtube" viewBox="-21 -117 682.66672 682">
+         <g>
+          <path d="m626.8125 64.035156c-7.375-27.417968-28.992188-49.03125-56.40625-56.414062-50.082031-13.703125-250.414062-13.703125-250.414062-13.703125s-200.324219 0-250.40625 13.183593c-26.886719 7.375-49.03125 29.519532-56.40625 56.933594-13.179688 50.078125-13.179688 153.933594-13.179688 153.933594s0 104.378906 13.179688 153.933594c7.382812 27.414062 28.992187 49.027344 56.410156 56.410156 50.605468 13.707031 250.410156 13.707031 250.410156 13.707031s200.324219 0 250.40625-13.183593c27.417969-7.378907 49.03125-28.992188 56.414062-56.40625 13.175782-50.082032 13.175782-153.933594 13.175782-153.933594s.527344-104.382813-13.183594-154.460938zm-370.601562 249.878906v-191.890624l166.585937 95.945312zm0 0"/>
+         </g>
+      </symbol>
+
+      <!-- facebook -->
+      <symbol id="facebook" viewBox="0 0 24 24">
+         <g>
+          <path d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-3.159 0-5.323 1.987-5.323 5.639v3.361h-3.486v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877v-2.939c.001-1.233.333-2.077 2.051-2.077z"/>
+         </g>
+      </symbol>
+
+      <!-- twitter -->
+      <symbol id="twitter" viewBox="0 0 512 512">
+         <g>
+          <path d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016
+            c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992
+            c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056
+            c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152
+            c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792
+            c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44
+            C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568
+            C480.224,136.96,497.728,118.496,512,97.248z"/>
+         </g>
+      </symbol>
+
+      <!-- mail -->
+      <symbol id="mail" viewBox="0 0 512 512">
+         <g>
+          <path d="M467,61H45c-6.927,0-13.412,1.703-19.279,4.51L255,294.789l51.389-49.387c0,0,0.004-0.005,0.005-0.007
+          c0.001-0.002,0.005-0.004,0.005-0.004L486.286,65.514C480.418,62.705,473.929,61,467,61z"/>
+          <path d="M507.496,86.728L338.213,256.002L507.49,425.279c2.807-5.867,4.51-12.352,4.51-19.279V106
+          C512,99.077,510.301,92.593,507.496,86.728z"/>
+          <path d="M4.51,86.721C1.703,92.588,0,99.073,0,106v300c0,6.923,1.701,13.409,4.506,19.274L173.789,256L4.51,86.721z"/>
+          <path d="M317.002,277.213l-51.396,49.393c-2.93,2.93-6.768,4.395-10.605,4.395s-7.676-1.465-10.605-4.395L195,277.211
+          L25.714,446.486C31.582,449.295,38.071,451,45,451h422c6.927,0,13.412-1.703,19.279-4.51L317.002,277.213z"/>
+         </g>
+      </symbol>
+
+  </svg>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <div class="header__img">
+          <a href="/">
+            <img src="img/logo.jpg" alt="Логотип">
+          </a>
+        </div>
+
+        <div class="mobile">
+            <button class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner lightmode-hamburger"></span>
+              </span>
+            </button>
+        </div>
+
+        <div class="mobile">
+            <nav id="m-nav" class="m-nav">
+                <a href="#home" id="scroll-home" class="m-nav__link">Home</a>
+                <a href="#video" id="scroll-video" class="m-nav__link">Video</a>
+                <a href="#destinations" id="scroll-destinations" class="m-nav__link">Destinations</a>
+                <a href="#booking" id="scroll-booking" class="m-nav__link">Booking</a>
+                <a class="m-nav__link-button">Sign In</a>
+            </nav>
+        </div>
+
+        <nav class="nav">
+            <a href="#home" id="scroll-home" class="nav__link">Home</a>
+            <a href="#video" id="scroll-video" class="nav__link">Video</a>
+            <a href="#destinations" id="scroll-destinations" class="nav__link">Destinations</a>
+            <a href="#booking" id="scroll-booking" class="nav__link">Booking</a>
+            <a class="nav__link-button">Sign In</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="header__fixed"></div>
+  
+  <!-- Intro -->
+  <div id="home" class="intro">
+    <div class="intro__inner">
+      <div class="container">
+        <div class="intro__header">
+          <h1 class="intro__header-title">Travel around <br> the world</h1>
+          <p class="intro__header-subtitle">Plan and book your perfect trip with expert advice, travel tips, destination information and inspiration from us.</p>
+          <a href="" class="intro__header-button">Sign Up Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="places">
+    <div class="container">
+      <div class="places__inner">
+        <div class="places__photo slider-places">
+          <div class="places__photo-img">
+            <div class="places__photo-price">$780</div>
+            <img src="img/places/places-1.jpg" alt="">
+            <div class="places__photo-title">Kuramathi, maldives</div>
+          </div>
+          <div class="places__photo-img">
+            <div class="places__photo-price">$640</div>
+            <img src="img/places/places-2.jpg" alt="">
+            <div class="places__photo-title">Kathmandu, Nepal</div>
+          </div>
+          <div class="places__photo-img">
+            <div class="places__photo-price">$560</div>
+            <img src="img/places/places-3.jpg" alt="">
+            <div class="places__photo-title">Raja Ampat, Indonesia</div>
+          </div>
+        </div>
+
+        <div class="places__header">
+          <h2 class="places__header-title">Amazing places to enjoy your travel</h2>
+          <div class="places__header-line"></div>
+          <p class="places__header-subtitle">Etiam facilisis, sapien quis porta dignissim, orci nisi pharetra dui, varius vehicula ligula nulla sit amet lorem. Aenean in vestibulum quam. Cras commodo varius neque, non gravida diam ultrices nec. Cras nulla mauris, fermentum nec libero in.</p>
+          <a href="" class="places__header-button">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="video" class="features">
+    <div class="container">
+      <div class="features__inner">
+        <div class="features__header">
+          <h2 class="features__header-title">Featured videos</h2>
+          <div class="features__header-line"></div>
+          <p class="features__header-subtitle">Aliquam sodales vitae ex tincidunt consectetur. Etiam eleifend malesuada magna, at imperdiet justo euismod eu. Aliquam vel imperdet mi, et convallis eros. Duis fermentum fringilla nisl at vulputate. Nunc nec lorem faucibus, molestie nisi id, elementum sem. Sed vulputate tempor augue a efficitur urna, ultrices eu. Duis vel turpis et arcu.</p>
+        </div>
+
+        <div class="features__video">
+          <div class="features__play">
+            <div class="features__play-img">
+              <img src="img/features/features.jpg" alt="">
+              <svg class="features__play-button">
+                <use xlink:href="#play"></use>
+              </svg>
+              <div class="features__play-title">When go to Maldives</div>
+              <div class="features__play-time">03.55</div>
+            </div>
+          </div>
+          <div class="features__slider slider-features">
+            <div class="features__item">
+              <div class="features__item-img">
+                <img src="img/features/features-1.jpg" alt="">
+              </div>
+              <div class="features__item-wrap">
+                <div class="features__item-title">When go to Maldives</div>
+                <div class="features__item-time">03.55</div>
+              </div>
+            </div>
+
+            <div class="features__item">
+              <div class="features__item-img">
+                <img src="img/features/features-2.jpg" alt="">
+              </div>
+              <div class="features__item-wrap">
+                <div class="features__item-title">Tanzania’s deadly pink lake</div>
+                <div class="features__item-time">05.24</div>
+              </div>
+            </div>
+
+            <div class="features__item">
+              <div class="features__item-img">
+                <img src="img/features/features-3.jpg" alt="">
+              </div>
+              <div class="features__item-wrap">
+                <div class="features__item-title">Top things to do in Kathmandu</div>
+                <div class="features__item-time">06.12</div>
+              </div>
+            </div>
+
+            <div class="features__item">
+              <div class="features__item-img">
+                <img src="img/features/features-4.jpg" alt="">
+              </div>
+              <div class="features__item-wrap">
+                <div class="features__item-title">Exploring China’s creative capital</div>
+                <div class="features__item-time">04.33</div>
+              </div>
+            </div>
+
+            <div class="features__item">
+              <div class="features__item-img">
+                <img src="img/features/features-5.jpg" alt="">
+              </div>
+              <div class="features__item-wrap">
+                <div class="features__item-title">Wynwood walls</div>
+                <div class="features__item-time">03.27</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="destinations" class="categories">
+    <div class="container">
+      <div class="categories__inner">
+        <div class="categories__header">
+          <h2 class="categories__header-title">Travel categories</h2>
+          <div class="categories__header-line"></div>
+          <p class="categories__header-subtitle">Maecenas et eros non quam ultricies interdum. Proin ac dolor vel neque ullamcorper blandit vitae et felis. Morbi ante urna, imperdiet vel neque vitae, porta ullamcorper metus. Quisque bibendum venenatis eros sed commodo. Nullam ultrices tortor non diam ullamcorper auctor. In urna tellus, auctor sit amet est ut, scelerisque volutpat diam.</p>
+        </div>
+
+        <div class="categories__slider slider-categories">
+          <div class="categories__item">
+            <div class="categories__item-img">
+              <img src="img/categories/categories-1.jpg" alt="">
+              <div class="categories__item-title">Food</div>
+            </div>
+          </div>
+          <div class="categories__item">
+            <div class="categories__item-img">
+              <img src="img/categories/categories-2.jpg" alt="">
+              <div class="categories__item-title">Backpacking</div>
+            </div>
+          </div>
+          <div class="categories__item">
+            <div class="categories__item-img">
+              <img src="img/categories/categories-3.jpg" alt="">
+              <div class="categories__item-title">Beaches, coast and island</div>
+            </div>
+          </div>
+          <div class="categories__item">
+            <div class="categories__item-img">
+              <img src="img/categories/categories-4.jpg" alt="">
+              <div class="categories__item-title">Art and culture</div>
+            </div>
+          </div>
+          <div class="categories__item">
+            <div class="categories__item-img">
+              <img src="img/categories/categories-5.jpg" alt="">
+              <div class="categories__item-title">Wildlife and nature</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="expert">
+    <div class="container slider-expert">
+      <div class="expert__inner">
+        <div class="expert__header">
+          <h2 class="expert__header-title">Traveller’s experiences</h2>
+          <div class="expert__header-line"></div>
+          <p class="expert__header-subtitle">“Curabitur posuere ullamcorper pulvinar. Donec dignissim bibendum leo, at faucibus enim aliquam eu. Nullam quis pulvinar diam, ac elementum urna. Integer id vehicula tortor, nec pulvinar libero. Ut elit elit, fringilla a nisi ut, dapibus eleifend quam.” </p>
+        </div>
+
+        <div class="expert__slider">
+          <div class="expert__item">
+            <div class="expert__item-img">
+              <img src="img/expert.jpg" alt="">
+            </div>
+            <div class="expert__item-name">Donquixote Law</div>
+            <div class="expert__item-specialty">Treveller</div>
+          </div>
+        </div>
+      </div>
+      <div class="expert__inner">
+        <div class="expert__header">
+          <h2 class="expert__header-title">Traveller’s experiences</h2>
+          <div class="expert__header-line"></div>
+          <p class="expert__header-subtitle">“Curabitur posuere ullamcorper pulvinar. Donec dignissim bibendum leo, at faucibus enim aliquam eu. Nullam quis pulvinar diam, ac elementum urna. Integer id vehicula tortor, nec pulvinar libero. Ut elit elit, fringilla a nisi ut, dapibus eleifend quam.” </p>
+        </div>
+
+        <div class="expert__slider">
+          <div class="expert__item">
+            <div class="expert__item-img">
+              <img src="img/expert.jpg" alt="">
+            </div>
+            <div class="expert__item-name">Donquixote Law</div>
+            <div class="expert__item-specialty">Treveller</div>
+          </div>
+        </div>
+      </div>
+      <div class="expert__inner">
+        <div class="expert__header">
+          <h2 class="expert__header-title">Traveller’s experiences</h2>
+          <div class="expert__header-line"></div>
+          <p class="expert__header-subtitle">“Curabitur posuere ullamcorper pulvinar. Donec dignissim bibendum leo, at faucibus enim aliquam eu. Nullam quis pulvinar diam, ac elementum urna. Integer id vehicula tortor, nec pulvinar libero. Ut elit elit, fringilla a nisi ut, dapibus eleifend quam.” </p>
+        </div>
+
+        <div class="expert__slider">
+          <div class="expert__item">
+            <div class="expert__item-img">
+              <img src="img/expert.jpg" alt="">
+            </div>
+            <div class="expert__item-name">Donquixote Law</div>
+            <div class="expert__item-specialty">Treveller</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="booking" class="statement">
+    <div class="statement__inner">
+      <div class="container">
+        <div class="statement__header">
+          <div class="statement__header-title">We will se you</div>
+          <div class="statement__header-subtitle">Enjoy 30% Off On First Trip</div>
+        </div>
+        <div class="statement__form">
+          <from>
+            <input type="text" placeholder="Destinations">
+            <input type="text" placeholder="Package">
+            <input type="text" placeholder="Dates">
+            <button>Book Now</button>
+          </from>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__nav">
+          <a href="" class="footer__nav-link">Home</a>
+          <a href="" class="footer__nav-link">Video</a>
+          <a href="" class="footer__nav-link">Destinations</a>
+          <a href="" class="footer__nav-link">Booking</a>
+          <a href="" class="footer__nav-link">Contact</a>
+          <a href="" class="footer__nav-link">Pricing</a>
+          <a href="" class="footer__nav-link">Privacy Policy</a>
+        </div>
+
+        <div class="footer__copyright">Copyright 2014 - 2018 <span>Rhea - Travel Around The World</span></div>
+
+        <div class="footer__social">
+          <a href="" class="footer__item">
+            <svg class="footer__item-icon">
+              <use xlink:href="#youtube"></use>
+            </svg>
+          </a>
+          <a href="" class="footer__item">
+            <svg class="footer__item-icon">
+              <use xlink:href="#facebook"></use>
+            </svg>
+          </a>
+          <a href="" class="footer__item">
+            <svg class="footer__item-icon">
+              <use xlink:href="#twitter"></use>
+            </svg>
+          </a>
+          <a href="" class="footer__item">
+            <svg class="footer__item-icon">
+              <use xlink:href="#mail"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
