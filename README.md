@@ -1,1 +1,1 @@
-Ссылка на портфолио https://github.com/artaksaakyan
+Ссылка на портфолио https://artaksaakyan.github.io/
